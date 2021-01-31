@@ -1,18 +1,25 @@
 package technicalblog.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import technicalblog.model.Post;
+import technicalblog.service.PostService;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private PostService postService;
     @RequestMapping("/") // forward slash indicates home page mapping
     public String getAllPosts(Model model) {
-        ArrayList <Post> posts = new ArrayList<Post>();
+
+        ArrayList <Post> posts = postService.getAllPosts();
+
+        /*  ArrayList <Post> posts = new ArrayList<Post>();
 
         Post post1 = new Post ();
         post1.setTitle("Post 1");
@@ -32,6 +39,8 @@ public class HomeController {
         posts.add (post1);
         posts.add (post2);
         posts.add (post3);
+
+         */
 
         model.addAttribute("posts", posts);
 
