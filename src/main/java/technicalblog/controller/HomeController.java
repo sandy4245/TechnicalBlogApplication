@@ -9,6 +9,7 @@ import technicalblog.service.PostService;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -16,8 +17,8 @@ public class HomeController {
     private PostService postService;
     @RequestMapping("/") // forward slash indicates home page mapping
     public String getAllPosts(Model model) {
-
-        ArrayList <Post> posts = postService.getAllPosts();
+        List<Post> posts = postService.getAllPosts();
+        //ArrayList <Post> posts = postService.getAllPosts();
 
         /*  ArrayList <Post> posts = new ArrayList<Post>();
 
